@@ -9,6 +9,7 @@ public final class SafeSolver {
 
     private final List<String> orientations;
     private int dial = 50;
+    private boolean countZerosWhilePerforming = false;
 
     public SafeSolver() throws Exception {
         this.orientations = this.readFromClasspath();
@@ -36,15 +37,23 @@ public final class SafeSolver {
                     this.dial = 99;
                 }
 
+                if (this.countZerosWhilePerforming && this.dial == 0) {
+                    password++;
+                }
+
                 rotation -= 1;
             }
 
-            if (this.dial == 0) {
+            if (!this.countZerosWhilePerforming && this.dial == 0) {
                 password++;
             }
         }
 
         return password;
+    }
+
+    public void enableZeroCounting() {
+        this.countZerosWhilePerforming = true;
     }
 
     private List<String> readFromClasspath() throws Exception {
