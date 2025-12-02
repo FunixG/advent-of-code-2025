@@ -1,11 +1,12 @@
 package dev.funixgaming.advent_of_code.twenty_five;
 
 import dev.funixgaming.advent_of_code.twenty_five.day_one.SafeSolver;
+import dev.funixgaming.advent_of_code.twenty_five.day_two.GiftShopIdHandler;
 
 public final class Main {
 
     public static void main(String[] args) throws Exception {
-        day01Step2();
+        day02();
     }
 
     private static void day01() throws Exception {
@@ -18,6 +19,11 @@ public final class Main {
 
         safeSolver.enableZeroCounting();
         System.out.println("SafeCode: " + safeSolver.getPassword());
+    }
+
+    private static void day02() throws Exception {
+        final GiftShopIdHandler giftShopIdHandler = new GiftShopIdHandler();
+        System.out.println("Sum: " + giftShopIdHandler.getSumOfInvalidIds());
     }
 
 }
