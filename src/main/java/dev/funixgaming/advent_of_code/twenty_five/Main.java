@@ -6,7 +6,12 @@ import dev.funixgaming.advent_of_code.twenty_five.day_two.GiftShopIdHandler;
 public final class Main {
 
     public static void main(String[] args) throws Exception {
+        long start = System.currentTimeMillis();
+
         day02StepTwo();
+
+        long elapsedTime = System.currentTimeMillis()-start;
+        System.out.println("ElapsedTime: " + elapsedTime + "ms");
     }
 
     private static void day01() throws Exception {
