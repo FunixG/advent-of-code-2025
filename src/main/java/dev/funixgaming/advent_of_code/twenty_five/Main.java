@@ -6,7 +6,7 @@ import dev.funixgaming.advent_of_code.twenty_five.day_two.GiftShopIdHandler;
 public final class Main {
 
     public static void main(String[] args) throws Exception {
-        day02();
+        day02StepTwo();
     }
 
     private static void day01() throws Exception {
@@ -23,6 +23,13 @@ public final class Main {
 
     private static void day02() throws Exception {
         final GiftShopIdHandler giftShopIdHandler = new GiftShopIdHandler();
+        System.out.println("Sum: " + giftShopIdHandler.getSumOfInvalidIds());
+    }
+
+    private static void day02StepTwo() throws Exception {
+        final GiftShopIdHandler giftShopIdHandler = new GiftShopIdHandler();
+
+        giftShopIdHandler.partTwo = true;
         System.out.println("Sum: " + giftShopIdHandler.getSumOfInvalidIds());
     }
 

@@ -9,6 +9,7 @@ import java.util.List;
 public final class GiftShopIdHandler {
 
     private final List<ShopRange> rangeIds = new ArrayList<>();
+    public boolean partTwo = false;
 
     public GiftShopIdHandler() throws Exception {
         final String ids = this.readFromClasspath();
@@ -35,6 +36,7 @@ public final class GiftShopIdHandler {
         String currentStr;
         int sizeCmp;
         int maxSize;
+        int maxLoop;
 
         String[] parsing;
         String firstPart;
@@ -47,21 +49,54 @@ public final class GiftShopIdHandler {
             while (current <= end) {
                 currentStr = Long.toString(current);
                 maxSize = currentStr.length();
-                sizeCmp = maxSize / 2;
 
-                parsing = this.getParts(currentStr, sizeCmp);
-                firstPart = parsing[0];
-                secondPart = parsing[1];
+                if (this.partTwo) {
+                    sizeCmp = 1;
+                    maxLoop = maxSize / 2;
 
-                if (firstPart.equals(secondPart)) {
-                    sum += current;
+                    while (sizeCmp <= maxLoop) {
+                        if (this.foundDuplicateSequence(currentStr, sizeCmp)) {
+                            sum += current;
+                            break;
+                        }
+
+                        ++sizeCmp;
+                    }
+                } else {
+                    sizeCmp = maxSize / 2;
+
+                    parsing = this.getParts(currentStr, sizeCmp);
+                    firstPart = parsing[0];
+                    secondPart = parsing[1];
+
+                    if (firstPart.equals(secondPart)) {
+                        sum += current;
+                    }
                 }
 
-                current += 1;
+                ++current;
             }
         }
 
         return sum;
+    }
+
+    private boolean foundDuplicateSequence(final String wholeNumber, final int sequenceSize) {
+        final int maxSize = wholeNumber.length();
+        final String sequenceInit = wholeNumber.substring(0, sequenceSize);
+        String sequence;
+        int i = sequenceSize;
+
+        while (i + sequenceSize <= maxSize) {
+            sequence = wholeNumber.substring(i, i + sequenceSize);
+
+            if (!sequence.equals(sequenceInit)) {
+                return false;
+            }
+            i += sequenceSize;
+        }
+
+        return i == maxSize;
     }
 
     private String[] getParts(final String currentStr, int size) {
