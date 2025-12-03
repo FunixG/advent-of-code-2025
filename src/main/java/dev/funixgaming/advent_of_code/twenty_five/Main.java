@@ -1,6 +1,7 @@
 package dev.funixgaming.advent_of_code.twenty_five;
 
 import dev.funixgaming.advent_of_code.twenty_five.day_one.SafeSolver;
+import dev.funixgaming.advent_of_code.twenty_five.day_three.BatteriesJoltageCalculator;
 import dev.funixgaming.advent_of_code.twenty_five.day_two.GiftShopIdHandler;
 
 public final class Main {
@@ -8,7 +9,7 @@ public final class Main {
     public static void main(String[] args) throws Exception {
         long start = System.currentTimeMillis();
 
-        day02StepTwo();
+        day03();
 
         long elapsedTime = System.currentTimeMillis()-start;
         System.out.println("ElapsedTime: " + elapsedTime + "ms");
@@ -36,6 +37,16 @@ public final class Main {
 
         giftShopIdHandler.partTwo = true;
         System.out.println("Sum: " + giftShopIdHandler.getSumOfInvalidIds());
+    }
+
+    private static void day03() throws Exception {
+        final BatteriesJoltageCalculator calculator = new BatteriesJoltageCalculator();
+
+        System.out.println("Batteries: " + calculator.getTotalOutput());
+    }
+
+    private static void day03StepTwo() throws Exception {
+
     }
 
 }
