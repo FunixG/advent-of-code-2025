@@ -1,5 +1,6 @@
 package dev.funixgaming.advent_of_code.twenty_five;
 
+import dev.funixgaming.advent_of_code.twenty_five.day_four.PaperRollsCount;
 import dev.funixgaming.advent_of_code.twenty_five.day_one.SafeSolver;
 import dev.funixgaming.advent_of_code.twenty_five.day_three.BatteriesJoltageCalculator;
 import dev.funixgaming.advent_of_code.twenty_five.day_two.GiftShopIdHandler;
@@ -7,9 +8,10 @@ import dev.funixgaming.advent_of_code.twenty_five.day_two.GiftShopIdHandler;
 public final class Main {
 
     public static void main(String[] args) throws Exception {
+        System.out.println("Start !");
         long start = System.currentTimeMillis();
 
-        day03();
+        day04PartTwo();
 
         long elapsedTime = System.currentTimeMillis()-start;
         System.out.println("ElapsedTime: " + elapsedTime + "ms");
@@ -47,6 +49,19 @@ public final class Main {
 
     private static void day03StepTwo() throws Exception {
 
+    }
+
+    private static void day04() throws Exception {
+        final PaperRollsCount paperRollsCount = new PaperRollsCount();
+
+        System.out.println("Forklits: " + paperRollsCount.countForklifts());
+    }
+
+    private static void day04PartTwo() throws Exception {
+        final PaperRollsCount paperRollsCount = new PaperRollsCount();
+
+        paperRollsCount.removeAll = true;
+        System.out.println("Forklits: " + paperRollsCount.countForklifts());
     }
 
 }
