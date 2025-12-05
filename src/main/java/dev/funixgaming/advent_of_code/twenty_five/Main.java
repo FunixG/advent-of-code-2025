@@ -1,5 +1,6 @@
 package dev.funixgaming.advent_of_code.twenty_five;
 
+import dev.funixgaming.advent_of_code.twenty_five.day_five.FridgeChecker;
 import dev.funixgaming.advent_of_code.twenty_five.day_four.PaperRollsCount;
 import dev.funixgaming.advent_of_code.twenty_five.day_one.SafeSolver;
 import dev.funixgaming.advent_of_code.twenty_five.day_three.BatteriesJoltageCalculator;
@@ -11,7 +12,7 @@ public final class Main {
         System.out.println("Start !");
         long start = System.currentTimeMillis();
 
-        day04PartTwo();
+        day05PartTwo();
 
         long elapsedTime = System.currentTimeMillis()-start;
         System.out.println("ElapsedTime: " + elapsedTime + "ms");
@@ -62,6 +63,19 @@ public final class Main {
 
         paperRollsCount.removeAll = true;
         System.out.println("Forklits: " + paperRollsCount.countForklifts());
+    }
+
+    private static void day05() throws Exception {
+        final FridgeChecker fridgeChecker = new FridgeChecker();
+
+        System.out.println("FreshCount: " + fridgeChecker.countFreshIngredients());
+    }
+
+    private static void day05PartTwo() throws Exception {
+        final FridgeChecker fridgeChecker = new FridgeChecker();
+
+        fridgeChecker.partTwo = true;
+        System.out.println("FreshCount: " + fridgeChecker.countFreshIngredients());
     }
 
 }
