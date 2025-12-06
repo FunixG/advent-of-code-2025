@@ -3,6 +3,8 @@ package dev.funixgaming.advent_of_code.twenty_five;
 import dev.funixgaming.advent_of_code.twenty_five.day_five.FridgeChecker;
 import dev.funixgaming.advent_of_code.twenty_five.day_four.PaperRollsCount;
 import dev.funixgaming.advent_of_code.twenty_five.day_one.SafeSolver;
+import dev.funixgaming.advent_of_code.twenty_five.day_six.MathCephalopodSolver;
+import dev.funixgaming.advent_of_code.twenty_five.day_six.MathSolver;
 import dev.funixgaming.advent_of_code.twenty_five.day_three.BatteriesJoltageCalculator;
 import dev.funixgaming.advent_of_code.twenty_five.day_two.GiftShopIdHandler;
 
@@ -12,7 +14,7 @@ public final class Main {
         System.out.println("Start !");
         long start = System.currentTimeMillis();
 
-        day05PartTwo();
+        day06PartTwo();
 
         long elapsedTime = System.currentTimeMillis()-start;
         System.out.println("ElapsedTime: " + elapsedTime + "ms");
@@ -76,6 +78,18 @@ public final class Main {
 
         fridgeChecker.partTwo = true;
         System.out.println("FreshCount: " + fridgeChecker.countFreshIngredients());
+    }
+
+    private static void day06() throws Exception {
+        final MathSolver mathSolver = new MathSolver();
+
+        System.out.println("Result: " + mathSolver.getResult());
+    }
+
+    private static void day06PartTwo() throws Exception {
+        final MathCephalopodSolver mathSolver = new MathCephalopodSolver();
+
+        System.out.println("Result: " + mathSolver.getResult());
     }
 
 }
